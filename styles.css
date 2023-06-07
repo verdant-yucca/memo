@@ -14,6 +14,12 @@ body {
     background-size: cover;
 }
 
+.finish {
+  align-self: center;
+  text-align: center;
+  margin: auto;
+}
+
 #board {
     /*width: 640px;*/
     aspect-ratio: 16 / 12;

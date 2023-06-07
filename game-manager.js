@@ -67,6 +67,13 @@ class GameManager {
                 this.#deck.removeCard(this.#secondCard);
 
                 this.#firstCard = this.#secondCard = null;
+
+                if (!this.#deck.cards.length) { // если открыли все карточки, то финиш
+                  const template = document.querySelector('.js-template').content.cloneNode(true);
+                  this.#boardElement.innerHTML = '';
+                  this.#boardElement.append(template);
+
+                }
             }
         }
     }

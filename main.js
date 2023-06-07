@@ -8,7 +8,6 @@ let gm = new GameManager(board, score);
 gm.startGame();
 
 board.addEventListener("click", function (e) {
-  console.log(e.target)
     let clickedCard = e.target.connectedCard;
     if (clickedCard) {
         gm.selectCard(clickedCard);
