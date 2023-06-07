@@ -1,16 +1,21 @@
 /**
  * Колода карт. Класс отвечает за создание и тасование карт. Содержит список изображений карт.
  */
+
 class Deck {
+    cards = [];
     #cardsImages = ["apple.png", "cake.png", "car.png", "cat.png", "cherry.png", "factory.png",
         "house.png", "plane.png", "ship.png", "train.png"];
 
-    constructor() {
-        this.cards = [];
-        this.#cardsImages.forEach(image => {
-            this.cards.push(new Card(image));
-            this.cards.push(new Card(image));
-        });
+    constructor(count) {
+      this.count = count;
+      this.heightCard = Math.floor(Math.sqrt(Math.pow(window.innerHeight-40, 2)/this.count));
+
+      for (let i = 0; i < this.count/2; i++) {
+        const j = Math.floor(Math.random() * this.#cardsImages.length)
+        this.cards.push(new Card(this.#cardsImages[j], this.heightCard));
+        this.cards.push(new Card(this.#cardsImages[j], this.heightCard));
+      }
     }
 
     shuffle() {

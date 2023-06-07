@@ -28,7 +28,7 @@ class GameManager {
 
     startGame() {
         this.attemptNumber = 0;
-        this.#deck = new Deck();
+        this.#deck = new Deck(12);
         this.#boardElement.innerHTML = "";
         this.shuffleAndDeal();
     }
@@ -61,12 +61,12 @@ class GameManager {
             this.attemptNumber++;
             this.#secondCard = card;
 
-            // если найдены карты с одинаковым изображением 
+            // если найдены карты с одинаковым изображением
             if (this.#firstCard.imagePath === card.imagePath) {
                 this.#deck.removeCard(this.#firstCard); // убираем карты из колоды (они остаются в DOM дереве)
                 this.#deck.removeCard(this.#secondCard);
 
-                this.#firstCard = this.#secondCard = null; 
+                this.#firstCard = this.#secondCard = null;
             }
         }
     }

@@ -6,12 +6,14 @@
     #element;
     #isFlipped = false;
 
-    constructor(image) {
+    constructor(image, height) {
         this.#image = image;
+        this._height = height;
 
         this.#element = document.createElement("div");
         this.#element.classList.add("card");
         this.#element.style.backgroundImage = `url('${this.coverPath}')`;
+        this.#element.style.height = this._height + 'px';
         this.#element.connectedCard = this; // в свойстве DOM объекта будет находится ссылка на экземпляр карты
     }
 
